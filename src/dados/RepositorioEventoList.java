@@ -11,24 +11,23 @@ import negocio.entity.TipoEvento;
 public class RepositorioEventoList {
 
 	private List<Evento> eventos = new ArrayList<Evento>();
-	private static int codigo = 1;
+	private static int id = 0;
+	
+	public int gerarId() {
+		id++;
+		return id;
+	}
 
 	public boolean novo(Evento e) {
 		if (e != null) {
-			e.setCodigo(codigo);
-			incrementarCodigo();
 			return eventos.add(e);
 		}
 		return false;
 	}
 
-	private void incrementarCodigo() {
-		codigo++;
-	}
-
 	public Evento buscar(int codigo) {
 		for (int i = 0; i < eventos.size(); i++) {
-			if (eventos.get(i) != null && eventos.get(i).getCodigo() == codigo)
+			if (eventos.get(i) != null && eventos.get(i).getId() == id)
 				return new Evento(eventos.get(i));
 		}
 		return null;
@@ -36,7 +35,7 @@ public class RepositorioEventoList {
 
 	public boolean deletar(Evento e) {
 		for (int i = 0; i < eventos.size(); i++) {
-			if (eventos.get(i) != null && eventos.get(i).getCodigo() == e.getCodigo()) {
+			if (eventos.get(i) != null && eventos.get(i).getId() == e.getId()) {
 				return eventos.remove(eventos.get(i));
 			}
 		}
@@ -87,7 +86,7 @@ public class RepositorioEventoList {
 
 	public boolean editar(Evento e, String novo, int opcao) {
 		for (int i = 0; i < eventos.size(); i++) {
-			if (eventos.get(i) != null && eventos.get(i).getCodigo() == e.getCodigo()) {
+			if (eventos.get(i) != null && eventos.get(i).getId() == e.getId()) {
 				switch (opcao) {
 				case 1:
 					eventos.get(i).setNome(novo);
@@ -108,7 +107,7 @@ public class RepositorioEventoList {
 
 	public boolean editarEventoTipoEvento(Evento e, TipoEvento te, int opcao) {
 		for (int i = 0; i < eventos.size(); i++) {
-			if(eventos.get(i) != null && eventos.get(i).getCodigo() == e.getCodigo()) {
+			if(eventos.get(i) != null && eventos.get(i).getId() == e.getId()) {
 				eventos.get(i).setTipoEvento(te);
 				return true;
 			}
@@ -118,7 +117,7 @@ public class RepositorioEventoList {
 	
 	public boolean editarEventoCliente(Evento e, Cliente c, int opcao) {
 		for (int i = 0; i < eventos.size(); i++) {
-			if(eventos.get(i) != null && eventos.get(i).getCodigo() == e.getCodigo()) {
+			if(eventos.get(i) != null && eventos.get(i).getId() == e.getId()) {
 				eventos.get(i).setCliente(c);
 				return true;
 			}
@@ -128,7 +127,7 @@ public class RepositorioEventoList {
 
 	public boolean editarConvidados(Evento e, int novo, int opcao) {
 		for (int i = 0; i < eventos.size(); i++) {
-			if(eventos.get(i) != null && eventos.get(i).getCodigo() == e.getCodigo()) {
+			if(eventos.get(i) != null && eventos.get(i).getId() == e.getId()) {
 				eventos.get(i).setNumConvidados(novo);
 				return true;
 			}
@@ -138,7 +137,7 @@ public class RepositorioEventoList {
 	
 	public boolean editarDuracao(Evento e, double novo, int opcao) {
 		for (int i = 0; i < eventos.size(); i++) {
-			if(eventos.get(i) != null && eventos.get(i).getCodigo() == e.getCodigo()) {
+			if(eventos.get(i) != null && eventos.get(i).getId() == e.getId()) {
 				eventos.get(i).setDuracao(novo);
 				return true;
 			}

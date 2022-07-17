@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import negocio.ISistema;
 import negocio.Sistema;
 import negocio.entity.Cliente;
+import negocio.entity.Evento;
 import ui.JanelaMenuUsuario;
 
 @SuppressWarnings("serial")
@@ -31,6 +32,7 @@ public class JanelaMenuUsuario extends JFrame{
 	private JLabel lbTitulo;
 
 	private List<Cliente> clientes;
+	private List<Evento> eventos;
 	private ISistema iSistema;
 	private UIUsuario uiUsuario;
 	private JanelaPrincipal janelaPrincipal;
@@ -125,7 +127,7 @@ public class JanelaMenuUsuario extends JFrame{
 
 					if (uiUsuario.logar(login, senha)) {
 						dispose();
-						janelaPrincipal = new JanelaPrincipal(clientes);
+						janelaPrincipal = new JanelaPrincipal(clientes, eventos);
 						janelaPrincipal.setVisible(true);
 					} else {
 						String titulo = "Mensagem";

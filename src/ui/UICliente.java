@@ -12,7 +12,6 @@ public class UICliente {
 	private ISistema iSistema;
 
 	public UICliente() {
-		scn = new Scanner(System.in);
 		iSistema = Sistema.getInstance();
 	}
 

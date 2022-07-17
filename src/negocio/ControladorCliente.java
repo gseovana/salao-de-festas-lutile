@@ -34,22 +34,6 @@ public class ControladorCliente {
 		return repoCliente.listar();
 	}
 
-	// fazer um validar q percorre o list e verifica se existe um cpf igual, se
-	// existir, verifica se o id n é o mesmo pq s for n tem prolema, é uma edicao
-
-	/*
-	 * private boolean validar(Cliente cliente) { Cliente c =
-	 * repoCliente.buscar(cliente.getId()); if (c != null && c.getId() ==
-	 * cliente.getId()) return false; else return true; }
-	 */
-
-	public boolean editar(Cliente c, String novo, int opcao) {
-		if (c != null && novo != null && opcao == 6) {
-			return repoCliente.editar(c, novo, opcao);
-		}
-		return false;
-	}
-
 	public int gerarId() {
 		return repoCliente.gerarId();
 	}

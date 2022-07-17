@@ -20,11 +20,13 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 import negocio.entity.Cliente;
+import negocio.entity.Evento;
 
 @SuppressWarnings("serial")
 public class JanelaCliente extends JDialog implements ActionListener {
 
 	private List<Cliente> clientes;
+	private List<Evento> eventos;
 	private Cliente c;
 	private UICliente uiCliente = new UICliente();
 	private JanelaEvento janelaEvento;
@@ -78,7 +80,7 @@ public class JanelaCliente extends JDialog implements ActionListener {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				janelaPrincipal = new JanelaPrincipal(clientes);
+				janelaPrincipal = new JanelaPrincipal(clientes, eventos);
 				janelaPrincipal.setVisible(true);
 			}
 
@@ -98,7 +100,7 @@ public class JanelaCliente extends JDialog implements ActionListener {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				janelaEvento = new JanelaEvento();
+				janelaEvento = new JanelaEvento(eventos);
 				janelaEvento.setVisible(true);
 			}
 
@@ -232,8 +234,6 @@ public class JanelaCliente extends JDialog implements ActionListener {
 		getContentPane().add(this.panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		tabela(clientes);
-
-		System.out.println(clientes);
 
 		tbClientes.getTableHeader().setReorderingAllowed(false);
 	}

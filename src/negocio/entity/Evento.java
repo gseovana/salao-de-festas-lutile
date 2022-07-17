@@ -2,7 +2,7 @@ package negocio.entity;
 
 
 public class Evento {
-	private int codigo;
+	private int id;
 	private String nome;
 	private String data;
 	private String horario;
@@ -12,9 +12,9 @@ public class Evento {
 	private Cliente cliente;
 	private int formaPagto;
 	private int qtdParcelas;
-
 	
-	private Evento(String nome, String data, String horario, TipoEvento tipoEvento, int numConvidados, double duracao, Cliente cliente, int formaPagto, int qtdParcelas) {
+	private Evento(int id, String nome, String data, String horario, TipoEvento tipoEvento, int numConvidados, double duracao, Cliente cliente, int formaPagto, int qtdParcelas) {
+		setId(id);
 		setNome(nome);
 		setData(data);
 		setHorario(horario);
@@ -27,7 +27,7 @@ public class Evento {
 	}
 	
 	public Evento(Evento evento) {
-		this.codigo = evento.codigo;
+		this.id = evento.id;
 		this.nome = evento.nome;
 		this.data = evento.data;
 		this.horario = evento.horario;
@@ -40,12 +40,12 @@ public class Evento {
 		
 	}
 	
-	public int getCodigo() {
-		return codigo;
+	public int getId() {
+		return id;
 	}
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	public String getNome() {
@@ -120,12 +120,11 @@ public class Evento {
 		this.qtdParcelas = qtdParcelas;
 	}
 	
-	public static Evento getInstance(String nome, String data, String horario, TipoEvento tipoEvento, int numConvidados, double duracao, Cliente cliente, int formaPagto, int qtdParcelas) {
+	public static Evento getInstance(int id, String nome, String data, String horario, TipoEvento tipoEvento, int numConvidados, double duracao, Cliente cliente, int formaPagto, int qtdParcelas) {
 		if (nome != null && data != null && horario != null && tipoEvento != null && numConvidados != 0 && duracao != 0.0 && cliente != null && formaPagto > 0) {
-			return new Evento(nome, data, horario, tipoEvento, numConvidados, duracao, cliente, formaPagto, qtdParcelas);
+			return new Evento(id, nome, data, horario, tipoEvento, numConvidados, duracao, cliente, formaPagto, qtdParcelas);
 		} else {
 			return null;
 		}
 	}
-
 }

@@ -16,19 +16,22 @@ import javax.swing.JPanel;
 import negocio.ISistema;
 import negocio.Sistema;
 import negocio.entity.Cliente;
+import negocio.entity.Evento;
 @SuppressWarnings("serial")
 public class JanelaPrincipal extends JDialog{
 	
 	private JButton btSair;
 	private List<Cliente> clientes;
+	private List<Evento> eventos;
 
 
-	public JanelaPrincipal(List<Cliente> clientes) {
+	public JanelaPrincipal(List<Cliente> clientes, List<Evento> eventos) {
 		this.clientes = clientes;
-		initGUI(clientes);
+		this.eventos = eventos;
+		initGUI(clientes, eventos);
 	}
 
-	private void initGUI(List<Cliente> clientes) {
+	private void initGUI(List<Cliente> clientes, List<Evento> eventos) {
 		setModal(true);
 
 		setTitle("Principal");
@@ -78,7 +81,7 @@ public class JanelaPrincipal extends JDialog{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				JanelaEvento janelaEvento = new JanelaEvento();
+				JanelaEvento janelaEvento = new JanelaEvento(eventos);
 			}
 			
 			@Override

@@ -24,7 +24,6 @@ public interface ISistema {
 	public boolean procurarTipoEvento(int codigo);
 	public boolean confirmarTipoEvento(int codigo);
 	public void init();
-	public boolean editarCliente(Cliente c, String novo, int opcao);
 	public Cliente buscarCliente(int id);
-	
+	public Evento buscarEvento(int id);	
 }

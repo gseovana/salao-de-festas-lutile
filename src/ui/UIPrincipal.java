@@ -32,7 +32,7 @@ public class UIPrincipal {
 				System.out.println("Deslogando...");
 				break;
 			case 1:
-				uiEvento.menu();
+				//uiEvento.menu();
 				break;
 			case 2:
 				//uiCliente.menu();

@@ -115,4 +115,8 @@ public class ControladorEvento {
 		}
 		return false;
 	}
+
+	public int gerarId() {
+		return repoEvento.gerarId();
+	}
 }

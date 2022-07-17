@@ -87,10 +87,6 @@ public class Sistema implements ISistema {
 		return cCliente.buscar(id);
 	}
 	
-	public boolean editarCliente(Cliente c, String novo, int opcao) {
-		return cCliente.editar(c, novo, opcao);		
-	}
-	
 	@Override
 	public boolean deletarCliente(Cliente c) {
 		return cCliente.deletar(c);
@@ -150,32 +146,35 @@ public class Sistema implements ISistema {
 		novoTipoEvento(tipoEvento);
 		Cliente cliente = Cliente.getInstance(cCliente.gerarId(), "Geovana", "123.456.789-20", "24/06/2003", "(31)922222222", "geovana@gmail");
 		novoCliente(cliente);
-		Evento evento = Evento.getInstance("GRDS", "22/03/2021", "21:30", tipoEvento, 07, 12.0, cliente, 1, 0);
+		Evento evento = Evento.getInstance(cEvento.gerarId(), "GRDS", "22/03/2021", "21:30", tipoEvento, 07, 12.0, cliente, 1, 0);
 		novoEvento(evento);	
 		
 		tipoEvento = TipoEvento.getInstance("Cha de bebe");
 		novoTipoEvento(tipoEvento);
 		cliente = Cliente.getInstance(cCliente.gerarId(), "Raul", "123.456.789-30", "04/10/2004", "(31)933333333", "raul@gmail");
 		novoCliente(cliente);
-		evento = Evento.getInstance("BBoy", "19/08/2022", "15:00", tipoEvento, 50, 4.0, cliente, 2, 3);
+		evento = Evento.getInstance(cEvento.gerarId(), "BBoy", "19/08/2022", "15:00", tipoEvento, 50, 4.0, cliente, 2, 3);
 		novoEvento(evento);	
 		
 		tipoEvento = TipoEvento.getInstance("Acampamento");
 		novoTipoEvento(tipoEvento);		
 		cliente = Cliente.getInstance(cCliente.gerarId(), "Nicolas", "123.456.789-50", "30/12/1995", "(31)955555555", "nicolas@gmail");
 		novoCliente(cliente);
-		evento = Evento.getInstance("Acampus", "17/09/2018", "23:50", tipoEvento, 12, 24.0, cliente, 1, 0);
+		evento = Evento.getInstance(cEvento.gerarId(),"Acampus", "17/09/2018", "23:50", tipoEvento, 12, 24.0, cliente, 1, 0);
 		novoEvento(evento);	
 
 
 		tipoEvento = TipoEvento.getInstance("Festa de 15 anos");
 		novoTipoEvento(tipoEvento);
 		
-		
 	}
 
 	public int gerarId() {
 		return cCliente.gerarId();
+	}
+	
+	public int gerarIdEvento() {
+		return cEvento.gerarId();
 	}
 	
 }

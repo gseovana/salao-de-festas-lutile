@@ -9,12 +9,12 @@ public class Cliente {
 	private String email;
 
 	public Cliente(int id, String nome, String cpf, String dataNasc, String telefone, String email) {
-		this.id = id;
-		this.nome = nome;
-		this.dataNasc = dataNasc;
-		this.cpf = cpf;
-		this.telefone = telefone;
-		this.email = email;
+		setId(id);
+		setNome(nome);
+		setDataNasc(dataNasc);
+		setCpf(cpf);
+		setTelefone(telefone);
+		setEmail(email);
 	}
 	
 	public Cliente(Cliente c) {

@@ -33,38 +33,6 @@ public class RepositorioClienteList {
 		return null;
 	}
 
-	public boolean editar(Cliente c, String novo, int opcao) {
-		for (int i = 0; i < clientes.size(); i++) {
-			if(clientes.get(i) != null && clientes.get(i).getCpf().equals(c.getCpf()) ) {
-				switch (opcao) {
-				case 1:
-					clientes.get(i).setNome(novo);
-					return true;
-				case 2:
-					clientes.get(i).setDataNasc(novo);
-					return true;
-				case 3:
-					for (int j = 0; j < clientes.size(); j++) {
-						if(clientes.get(j).getCpf().equals(novo)) {
-							return false;
-						}
-					}
-					clientes.get(i).setCpf(novo);
-					return true;
-				case 4:
-					clientes.get(i).setTelefone(novo);
-					return true;
-				case 5:
-					clientes.get(i).setEmail(novo);
-					return true;
-				default:
-					break;
-				}
-			}
-		}
-		return false;
-	}
-
 	public boolean deletar(Cliente c) {
 		for (int i = 0; i < clientes.size(); i++) {
 			if(clientes.get(i) != null && clientes.get(i).getCpf().equals(c.getCpf()))
